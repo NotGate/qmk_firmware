@@ -2,12 +2,13 @@
 # sudo util/docker_build.sh gergoplex:notgate:flash
 
 # Stuff
-MOUSEKEY_ENABLE = yes
+MOUSEKEY_ENABLE = no
 
 #Debug options
-VERBOSE = yes
+CONSOLE_ENABLE = no
+VERBOSE = no
 DEBUG_MATRIX_SCAN_RATE = no
-DEBUG_MATRIX = yes
+DEBUG_MATRIX = no
 
 # Germ says no touchie
 ifeq ($(strip $(DEBUG_MATRIX)), yes)

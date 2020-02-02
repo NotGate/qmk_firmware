@@ -1,4 +1,4 @@
 #pragma once 
 
-#define COMBO_COUNT 16
-#define COMBO_ALLOW_ACTION_KEYS 
+#define ONESHOT_TAP_TOGGLE 2
+#define ONESHOT_TIMEOUT 100
