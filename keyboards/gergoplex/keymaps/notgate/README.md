@@ -20,3 +20,8 @@ Every input is a basic chord and you're always alternating your hands, so typing
 Every character is a simple chord.  
 I purposely put minimal effort into the layout of these chords to reinforce the fact all characters are created equally.  
 However, the alphabet chords have been loosely arranged by popularity so that one finger does not end up putting in more work than another.  
+
+### Layout
+Let's talk about the actual layout now:  
+![NotGate_GergoPlex](layout.png)  
+TODO
