@@ -25,10 +25,10 @@ static void process(uint32_t val) {
              0b10,KC_BSPC)
         CASE(0b0001,
              0b0000,
-             0b00,KC_TAB)
+             0b00,KC_ENT)
         CASE(0b0000,
              0b0001,
-             0b00,KC_ENT)
+             0b00,KC_TAB)
         CASE(0b0000,
              0b0100,
              0b01,KC_ESC)
@@ -68,9 +68,9 @@ static void process(uint32_t val) {
         CASE(0b1010,
              0b0001,
              0b00,KC_PLUS)
-        CASE(0b0100,
-             0b0000,
-             0b01,KC_GRV)
+        CASE(0b0000,
+             0b0110,
+             0b01,KC_COMMA)
         CASE(0b0010,
              0b1001,
              0b00,KC_MINUS)
@@ -226,6 +226,9 @@ static void process(uint32_t val) {
         CASE(0b0000,
              0b1001,
              0b00,KC_UNDS)
+        CASE(0b0100,
+             0b0000,
+             0b01,KC_GRV)
 
         CASE(0b0000,
              0b1100,
