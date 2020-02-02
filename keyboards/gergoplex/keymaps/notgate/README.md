@@ -23,5 +23,5 @@ However, the alphabet chords have been loosely arranged by popularity so that on
 
 ### Layout
 Let's talk about the actual layout now:  
-![NotGate_GergoPlex](layout.png)  
+![NotGate_GergoPlex](https://i.imgur.com/R8FzBWJ.jpg)  
 TODO
