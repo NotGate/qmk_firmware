@@ -27,9 +27,9 @@ static void process(uint32_t val) {
         TAP(0b0000,
             0b0001,
             0b00,KC_ENT)
-        TAP(0b0001,
-            0b0000,
-            0b00,KC_TAB)
+        TAP(0b0000,
+            0b0001,
+            0b01,KC_TAB)
         TAP(0b0000,
             0b0100,
             0b01,KC_ESC)
@@ -57,59 +57,59 @@ static void process(uint32_t val) {
         TAP(0b1010,
             0b0000,
             0b01,KC_QUOT)
-        TAP(0b0111,
-            0b0000,
+        TAP(0b0110,
+            0b0001,
             0b00,KC_LPRN)
-        TAP(0b1101,
-            0b0000,
+        TAP(0b1100,
+            0b0001,
             0b00,KC_RPRN)
-        TAP(0b1001,
-            0b0010,
+        TAP(0b1000,
+            0b0011,
             0b00,KC_ASTR)
-        TAP(0b1011,
-            0b0000,
+        TAP(0b1010,
+            0b0001,
             0b00,KC_PLUS)
         TAP(0b0000,
             0b0110,
             0b01,KC_COMMA)
-        TAP(0b0011,
-            0b1000,
+        TAP(0b0010,
+            0b1001,
             0b00,KC_MINUS)
         TAP(0b0000,
             0b1100,
             0b01,KC_DOT)
-        TAP(0b0011,
-            0b0000,
+        TAP(0b0010,
+            0b0001,
             0b00,KC_SLASH)
-        TAP(0b0001,
-            0b0010,
+        TAP(0b0000,
+            0b0011,
             0b00,KC_0)
-        TAP(0b0001,
-            0b0100,
+        TAP(0b0000,
+            0b0101,
             0b00,KC_1)
-        TAP(0b1011,
-            0b0100,
+        TAP(0b1010,
+            0b0101,
             0b00,KC_2)
-        TAP(0b0101,
-            0b1010,
+        TAP(0b0100,
+            0b1011,
             0b00,KC_3)
-        TAP(0b0111,
-            0b1000,
+        TAP(0b0110,
+            0b1001,
             0b00,KC_4)
-        TAP(0b1101,
-            0b0010,
+        TAP(0b1100,
+            0b0011,
             0b00,KC_5)
-        TAP(0b1001,
-            0b0110,
+        TAP(0b1000,
+            0b0111,
             0b00,KC_6)
-        TAP(0b0011,
-            0b1100,
+        TAP(0b0010,
+            0b1101,
             0b00,KC_7)
-        TAP(0b0001,
-            0b1110,
+        TAP(0b0000,
+            0b1111,
             0b00,KC_8)
-        TAP(0b1111,
-            0b0000,
+        TAP(0b1110,
+            0b0001,
             0b00,KC_9)
         TAP(0b1100,
             0b0000,
@@ -117,14 +117,14 @@ static void process(uint32_t val) {
         TAP(0b0110,
             0b0000,
             0b01,KC_SCOLON)
-        TAP(0b0101,
-            0b0010,
+        TAP(0b0100,
+            0b0011,
             0b00,KC_LT)
-        TAP(0b0001,
-            0b1010,
+        TAP(0b0000,
+            0b1011,
             0b00,KC_EQL)
-        TAP(0b0101,
-            0b1000,
+        TAP(0b0100,
+            0b1001,
             0b00,KC_GT)
         TAP(0b0010,
             0b0100,
@@ -133,99 +133,99 @@ static void process(uint32_t val) {
             0b1000,
             0b01,KC_AT)
 
-        TAP(0b0001,
-            0b1100,
+        TAP(0b0000,
+            0b1101,
             0b01,S(KC_A))
-        TAP(0b0001,
-            0b1110,
+        TAP(0b0000,
+            0b1111,
             0b01,S(KC_B))
-        TAP(0b0011,
-            0b1000,
+        TAP(0b0010,
+            0b1001,
             0b01,S(KC_C))
-        TAP(0b1001,
-            0b0010,
+        TAP(0b1000,
+            0b0011,
             0b01,S(KC_D))
-        TAP(0b0001,
-            0b1010,
+        TAP(0b0000,
+            0b1011,
             0b01,S(KC_E))
-        TAP(0b0111,
-            0b1000,
+        TAP(0b0110,
+            0b1001,
             0b01,S(KC_F))
-        TAP(0b1001,
-            0b0110,
+        TAP(0b1000,
+            0b0111,
             0b01,S(KC_G))
-        TAP(0b0101,
-            0b0010,
+        TAP(0b0100,
+            0b0011,
             0b01,S(KC_H))
-        TAP(0b1011,
-            0b0000,
+        TAP(0b1010,
+            0b0001,
             0b01,S(KC_I))
-        TAP(0b0101,
-            0b0000,
+        TAP(0b0100,
+            0b0001,
             0b01,S(KC_J))
-        TAP(0b0001,
-            0b0100,
+        TAP(0b0000,
+            0b0101,
             0b01,S(KC_K))
-        TAP(0b0101,
-            0b1000,
+        TAP(0b0100,
+            0b1001,
             0b01,S(KC_L))
-        TAP(0b0101,
-            0b1010,
+        TAP(0b0100,
+            0b1011,
             0b01,S(KC_M))
-        TAP(0b1101,
-            0b0000,
+        TAP(0b1100,
+            0b0001,
             0b01,S(KC_N))
-        TAP(0b0111,
-            0b0000,
+        TAP(0b0110,
+            0b0001,
             0b01,S(KC_O))
-        TAP(0b1101,
-            0b0010,
+        TAP(0b1100,
+            0b0011,
             0b01,S(KC_P))
-        TAP(0b0011,
-            0b0000,
+        TAP(0b0010,
+            0b0001,
             0b01,S(KC_Q))
-        TAP(0b1001,
-            0b0100,
+        TAP(0b1000,
+            0b0101,
             0b01,S(KC_R))
-        TAP(0b0011,
-            0b0100,
+        TAP(0b0010,
+            0b0101,
             0b01,S(KC_S))
-        TAP(0b0001,
-            0b0110,
+        TAP(0b0000,
+            0b0111,
             0b01,S(KC_T))
-        TAP(0b1011,
-            0b0100,
+        TAP(0b1010,
+            0b0101,
             0b01,S(KC_U))
-        TAP(0b0001,
-            0b0010,
+        TAP(0b0000,
+            0b0011,
             0b01,S(KC_V))
-        TAP(0b1111,
-            0b0000,
+        TAP(0b1110,
+            0b0001,
             0b01,S(KC_W))
-        TAP(0b0001,
-            0b1000,
+        TAP(0b0000,
+            0b1001,
             0b01,S(KC_X))
-        TAP(0b0011,
-            0b1100,
+        TAP(0b0010,
+            0b1101,
             0b01,S(KC_Y))
-        TAP(0b1001,
-            0b0000,
+        TAP(0b1000,
+            0b0001,
             0b01,S(KC_Z))
 
-        TAP(0b0001,
-            0b0110,
+        TAP(0b0000,
+            0b0111,
             0b00,KC_LBRC)
-        TAP(0b1001,
-            0b0000,
+        TAP(0b1000,
+            0b0001,
             0b00,KC_BSLASH)
-        TAP(0b0001,
-            0b1100,
+        TAP(0b0000,
+            0b1101,
             0b00,KC_RBRC)
-        TAP(0b0101,
-            0b0000,
+        TAP(0b0100,
+            0b0001,
             0b00,KC_CIRC)
-        TAP(0b0001,
-            0b1000,
+        TAP(0b0000,
+            0b1001,
             0b00,KC_UNDS)
         TAP(0b0100,
             0b0000,
@@ -310,14 +310,14 @@ static void process(uint32_t val) {
             0b0000,
             0b00,KC_Z)
 
-        TAP(0b0011,
-            0b0100,
+        TAP(0b0010,
+            0b0101,
             0b00,KC_LCBR)
         TAP(0b0100,
             0b0010,
             0b01,KC_PIPE)
-        TAP(0b1001,
-            0b0100,
+        TAP(0b1000,
+            0b0101,
             0b00,KC_RCBR)
         TAP(0b1000,
             0b0000,
@@ -354,6 +354,9 @@ static void process(uint32_t val) {
            0b10,MOD_LCTL|MOD_LGUI|MOD_LALT)
 
         // TBD
+        TAP(0b1000,
+            0b0000,
+            0b10,KC_LOCK)
         // F1-12
         // printscreen
         // audio controls (up,down,mute)
