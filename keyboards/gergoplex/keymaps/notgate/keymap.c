@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-static uint32_t state;
+static uint16_t state;
 #define X KC_NO
 #define ROW record->event.key.row
 #define COL record->event.key.col
@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 X,8,9,9,8,X)
 };
 
-static void process(uint32_t val) {
+static void process(uint16_t val) {
     switch (val) {
         TAP(0b0000, 0b0000, 0b10, KC_BSPC)
         TAP(0b0000, 0b0001, 0b00, KC_ENT)
@@ -147,4 +147,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         process(state);
         state = 0;
     }
+    return false;
 }
