@@ -1,4 +1,7 @@
 # Attributes of this Typing System
+## Demonstration
+TODO
+
 ## Rhythmic
 The left and right hands are mirrored versions of each other, meaning you can always alternate your hands.  
 Typing at high speeds just involves alternating your hands faster and faster.  
@@ -22,4 +25,42 @@ However, the alphabet chords have been loosely arranged by popularity so that on
 ## Layout
 Let's talk about the actual layout now:  
 ![NotGate_GergoPlex](https://i.imgur.com/R8FzBWJ.jpg)  
-TODO
+
+The layout is centered around your 3 main fingers: index, middle, and ring. With these 3 fingers you can type the entire alphabet with just 2 rows.  
+The following list attempts to illustrate this visually: `v=bottom row, ^=top row, -=nothing`.  
+```
+a --vv- -vv--
+b -vvv- -vvv-
+c -^-v- -v-^-
+d -v-^- -^-v-
+e -v-v- -v-v-
+f -^^v- -v^^-
+g -vv^- -^vv-
+h -v^-- --^v-
+i -^-^- -^-^-
+j --^-- --^--
+k --v-- --v--
+l --^v- -v^--
+m -v^v- -v^v-
+n --^^- -^^--
+o -^^-- --^^-
+p -v^^- -^^v-
+q -^--- ---^-
+r --v^- -^v--
+s -^v-- --v^-
+t -vv-- --vv-
+u -^v^- -^v^-
+v -v___ ___v-
+w -^^^- -^^^-
+x ---v- -v---
+y -^vv- -vv^-
+z ---^- -^---
+```
+
+Neat. The other `97-26` ASCII characters are handled with modifiers for the pinkie or thumb.  
+Capitals are simply achieved by pressing down both the upper thumb and pinkie buttons:  
+```
+A: ^-vv^ ^vv-^
+```
+
+TODO: Reference the code if you want to know the rest of the `97-52` characters. 
