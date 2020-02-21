@@ -3,6 +3,7 @@
 static uint16_t state;
 enum SIDE{NONE,RIGHT,LEFT};
 enum SIDE side = NONE;
+uint16_t start = 0;
 #define X  KC_NO
 #define XX KC_NO
 #define ROW record->event.key.row
@@ -143,13 +144,20 @@ static void process(uint16_t val) {
     }
 }
 
+void matrix_scan_user() {
+    if(side!=NONE && timer_elapsed(start)>200){
+        process(state);
+    }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if(record->event.pressed && keycode != X){
+    if(record->event.pressed && keycode != X) {
         if(side != keycode/10+1 && side != NONE) {
             process(state);
             state = 0;
         }
         side = keycode/10+1;
+        if(state==0) start = timer_read();
         state |= 1 << (keycode%10);
     }else if(state > 0){
         process(state);
