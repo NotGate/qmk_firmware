@@ -1,7 +1,10 @@
 #include QMK_KEYBOARD_H
 
 static uint16_t state;
-#define X KC_NO
+enum SIDE{NONE,RIGHT,LEFT};
+enum SIDE side = NONE;
+#define X  KC_NO
+#define XX KC_NO
 #define ROW record->event.key.row
 #define COL record->event.key.col
 #define TAP(H, M, L, KC) case H | M << 4 | L << 8: tap_code16(KC);break;
@@ -9,10 +12,10 @@ static uint16_t state;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LAYOUT_gergoplex(
-            0,1,2,3,X,X,3,2,1,0,
-            4,5,6,7,X,X,7,6,5,4,
-            X,X,X,X,X,X,X,X,X,X,
-                X,8,9,9,8,X)
+             0, 1, 2, 3,XX,XX,13,12,11,10,
+             4, 5, 6, 7,XX,XX,17,16,15,14,
+            XX,XX,XX,XX,XX,XX,XX,XX,XX,XX,
+                  XX, 8, 9,19,18,XX)
 };
 
 static void process(uint16_t val) {
@@ -141,11 +144,17 @@ static void process(uint16_t val) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if(record->event.pressed && keycode != X)
-        state |= 1 << keycode;
-    else if(state > 0){
+    if(record->event.pressed && keycode != X){
+        if(side != keycode/10+1 && side != NONE) {
+            process(state);
+            state = 0;
+        }
+        side = keycode/10+1;
+        state |= 1 << (keycode%10);
+    }else if(state > 0){
         process(state);
         state = 0;
+        side = NONE;
     }
     return false;
 }
