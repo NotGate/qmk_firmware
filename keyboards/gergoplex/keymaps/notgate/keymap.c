@@ -145,7 +145,7 @@ static void process(uint16_t val) {
 }
 
 void matrix_scan_user() {
-    if(side!=NONE && timer_elapsed(start)>200){
+    if(side!=NONE && timer_elapsed(start)>500){
         process(state);
     }
 }
