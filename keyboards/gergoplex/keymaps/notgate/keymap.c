@@ -142,7 +142,7 @@ static void process(uint16_t val) {
         case THUMB1|Z|J|V:TAP(KC_F5)
         case THUMB1|Z|J|Q:TAP(KC_F9)
          
-        // Thumb1 Chords
+        // Thumb2 Chords
         case THUMB2      :TAP(KC_BSPC)
         case THUMB2|X    :OS(MOD_LCTL)
         case THUMB2|Z    :TAP(XX)
