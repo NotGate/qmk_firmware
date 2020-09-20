@@ -47,7 +47,7 @@ const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM nm_combo[] = {KC_N, KC_M, COMBO_END}; 
+const uint16_t PROGMEM nm_combo[] = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM mc_combo[] = {KC_M, KC_COMM, COMBO_END};
 
 const uint16_t PROGMEM gb_combo[] = {KC_G, KC_B, COMBO_END};
@@ -72,7 +72,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [KL] = COMBO(kl_combo, KC_GT),
   [MC] = COMBO(mc_combo, KC_UNDS), // m,
   [NM] = COMBO(nm_combo, KC_QUOT),
-  
+
   // Vertical
   [GB] = COMBO(gb_combo, KC_BTN1),
   [FV] = COMBO(fv_combo, KC_BTN2),
@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *  '-------------------------'           '-----------------'
  */
 [BASE] = LAYOUT_gergoplex(
-    KC_Q,    		 			 KC_W, KC_E, KC_R, KC_T,  	KC_Y, KC_U, KC_I,    KC_O, 	 KC_P, 
+    KC_Q,    		 			 KC_W, KC_E, KC_R, KC_T,  	KC_Y, KC_U, KC_I,    KC_O, 	 KC_P,
     MT(MOD_LCTL, KC_A),KC_S, KC_D, KC_F, KC_G,    KC_H, KC_J, KC_K,    KC_L, 	 MT(MOD_LCTL, KC_SCLN),
     MT(MOD_RSFT, KC_Z),KC_X, KC_C, KC_V, KC_B,    KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RSFT, KC_SLSH),
 
