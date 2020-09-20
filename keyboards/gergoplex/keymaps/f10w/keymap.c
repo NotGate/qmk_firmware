@@ -14,6 +14,22 @@ enum custom_keycodes {
 };
 
 bool spc = false;
+size_t col = 0;
+size_t row = 0;
+char num[5];
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+[BASE] = LAYOUT_gergoplex(
+    KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,
+    KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   OU,     KC_L,   KC_SCOLON,
+    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   TH,     KC_DOT, KC_SLASH,
+   	                TOP,    MID,    BOT,    OSM(MOD_LSFT),  SPC,     OSL(FNS)),
+[FNS] = LAYOUT_gergoplex(
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_X, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+   	              KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO)
+};
 
 // TODO: find a good way to activate LSFT or FNS before other keys
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -30,7 +46,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code(KC_O);
             tap_code(KC_U);
             break;
+        case TOP:
+            tap_code(pgm_read_word(&keymaps[BASE][row][0]));
+            break;
+        case MID:
+            tap_code(pgm_read_word(&keymaps[BASE][row][1]));
+            break;
+        case BOT:
+            tap_code(pgm_read_word(&keymaps[BASE][row][2]));
+            break;
         }
+        col = record->event.key.col;
+        row = record->event.key.row;
     } else {
         if(spc) {
             tap_code(KC_SPC);
@@ -38,19 +65,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
     }
     return true;
-};
-
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-[BASE] = LAYOUT_gergoplex(
-    KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,
-    KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   OU,     KC_L,   KC_SCOLON,
-    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   TH,     KC_DOT, KC_SLASH,
-   	                TOP,    MID,    BOT,    OSM(MOD_LSFT),   SPC,     OSL(FNS)),
-[FNS] = LAYOUT_gergoplex(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_X, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-   	              KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO)
 };
 
 
