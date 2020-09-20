@@ -16,7 +16,6 @@ enum custom_keycodes {
 bool spc = false;
 size_t col = 0;
 size_t row = 0;
-char num[5];
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_gergoplex(
@@ -31,10 +30,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    	              KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO)
 };
 
-// TODO: find a good way to activate LSFT or FNS before other keys
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        switch (keycode) {
+void f(uint16_t keycode, bool tap) {
+    switch (keycode) {
         case SPC:
             spc = true;
             break;
@@ -47,15 +44,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code(KC_U);
             break;
         case TOP:
-            tap_code(pgm_read_word(&keymaps[BASE][row][0]));
+            f(pgm_read_word(&keymaps[BASE][row][0]),true);
             break;
         case MID:
-            tap_code(pgm_read_word(&keymaps[BASE][row][1]));
+            f(pgm_read_word(&keymaps[BASE][row][1]),true);
             break;
         case BOT:
-            tap_code(pgm_read_word(&keymaps[BASE][row][2]));
+            f(pgm_read_word(&keymaps[BASE][row][2]),true);
             break;
-        }
+        default:
+            if(tap) tap_code(keycode);
+    }
+}
+
+// TODO: find a good way to activate LSFT or FNS before other keys - opposite of space
+// TODO: get capital letters working with TMB keys
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        f(keycode,false);
         col = record->event.key.col;
         row = record->event.key.row;
     } else {
