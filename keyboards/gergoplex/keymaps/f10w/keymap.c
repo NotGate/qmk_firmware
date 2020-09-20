@@ -14,7 +14,6 @@ enum custom_keycodes {
 };
 
 bool spc = false;
-size_t col = 0;
 size_t row = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -58,12 +57,12 @@ void f(uint16_t keycode, bool tap) {
 }
 
 // TODO: find a good way to activate LSFT or FNS before other keys - opposite of space
-// TODO: get capital letters working with TMB keys
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         f(keycode,false);
-        col = record->event.key.col;
-        row = record->event.key.row;
+        if(record->event.key.col < 3) {
+            row = record->event.key.row;
+        }
     } else {
         if(spc) {
             tap_code(KC_SPC);
