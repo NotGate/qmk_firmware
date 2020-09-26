@@ -1,7 +1,6 @@
 // sudo util/docker_build.sh gergoplex:f10w:flash
 #include QMK_KEYBOARD_H
-#define BASE 0
-#define FNS 1
+#define XXX KC_NO
 
 enum custom_keycodes {
     TOP = SAFE_RANGE,
@@ -17,16 +16,16 @@ bool spc = false;
 size_t row = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-[BASE] = LAYOUT_gergoplex(
-    KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,
-    KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   OU,     KC_L,   KC_SCOLON,
-    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   TH,     KC_DOT, KC_SLASH,
-   	                TOP,    MID,    BOT,    OSM(MOD_LSFT),  SPC,     OSL(FNS)),
-[FNS] = LAYOUT_gergoplex(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_X, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-   	              KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO)
+[0] = LAYOUT_gergoplex(
+    W  ,TH ,L  ,D  ,XXX,XXX,I  ,R  ,H  ,M  ,
+    SFT,N  ,T  ,A  ,XXX,XXX,E  ,O  ,S  ,FNS,
+    Y  ,P  ,IN ,F  ,XXX,XXX,C  ,G  ,U  ,ER ,
+   	    TOP,MID,BOT,        OU ,SPC,B  ),
+[1] = LAYOUT_gergoplex(
+    XXX,SCN,DQT,DOT,XXX,XXX,COM,SQT,CLN,XXX,
+    XXX,Z  ,J  ,K  ,XXX,XXX,V  ,X  ,Q  ,XXX,
+    XXX,XXX,XXX,PLS,XXX,XXX,MNS,XXX,XXX,XXX,
+   	    XXX,XXX,XXX,        XXX,XXX,XXX)
 };
 
 void f(uint16_t keycode, bool tap) {
@@ -43,13 +42,13 @@ void f(uint16_t keycode, bool tap) {
             tap_code(KC_U);
             break;
         case TOP:
-            f(pgm_read_word(&keymaps[BASE][row][0]),true);
+            f(pgm_read_word(&keymaps[0][row][0]),true);
             break;
         case MID:
-            f(pgm_read_word(&keymaps[BASE][row][1]),true);
+            f(pgm_read_word(&keymaps[0][row][1]),true);
             break;
         case BOT:
-            f(pgm_read_word(&keymaps[BASE][row][2]),true);
+            f(pgm_read_word(&keymaps[0][row][2]),true);
             break;
         default:
             if(tap) tap_code(keycode);
