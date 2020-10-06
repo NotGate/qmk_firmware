@@ -1,16 +1,31 @@
+/*
+u f c r   d m w l
+i a o n   t h e s
+. y v g   b p k ,
+*/
+
 // sudo util/docker_build.sh gergoplex:f10w:flash
 #include QMK_KEYBOARD_H
 #define XXXX KC_NO
-#define SFT OSM(MOD_LSFT)
-#define FNS OSL(1)
 #define DOT KC_DOT
 #define COM KC_COMM
+
+#define BS LCTL(KC_BSPC)
+#define DS LCTL(KC_DEL)
+#define TB KC_TAB
+#define NL KC_ENT
+
+#define SFT OSM(MOD_LSFT)
+#define FNS OSL(1)
 
 enum custom_keycodes {
     TOP = SAFE_RANGE,
     MID,
     BOT,
     SPC,
+
+    // SFT,
+    // FNS,
 
     AND,
     THE,
@@ -24,19 +39,22 @@ enum custom_keycodes {
     PLS
 };
 
-bool spc = false;
+// TODO: SPC+FNS+key should send FNS+key+SPC
+
+bool spc = false, fns = false, sft = false;
+uint16_t key;
 size_t row = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [0] = LAYOUT_gergoplex(
-    KC_U,KC_F,KC_C,KC_R,XXXX,    XXXX,KC_D,KC_M,KC_W,KC_L,
-    KC_I,KC_A,KC_O,KC_N,XXXX,    XXXX,KC_T,KC_H,KC_E,KC_S,
+    KC_U,KC_F,KC_C,KC_R,TB  ,    NL  ,KC_D,KC_M,KC_W,KC_L,
+    KC_I,KC_A,KC_O,KC_N,DS  ,    BS  ,KC_T,KC_H,KC_E,KC_S,
     DOT ,KC_Y,KC_V,KC_G,XXXX,    XXXX,KC_B,KC_P,KC_K,COM ,
               TOP ,MID ,BOT ,    SFT ,SPC ,FNS ),
 [1] = LAYOUT_gergoplex(
-    XXXX,SCN ,DQT ,AND ,XXXX,    XXXX,THE ,SQT ,CLN ,XXXX,
-    XXXX,KC_Z,KC_J,YOU ,XXXX,    XXXX,ING ,KC_X,KC_Q,XXXX,
-    XXXX,XXXX,XXXX,PLS ,XXXX,    XXXX,MNS ,XXXX,XXXX,XXXX,
+    XXXX,XXXX,XXXX,XXXX,XXXX,    XXXX,XXXX,XXXX,XXXX,XXXX,
+    XXXX,XXXX,KC_Z,KC_J,XXXX,    XXXX,KC_X,KC_Q,XXXX,XXXX,
+    XXXX,XXXX,XXXX,XXXX,XXXX,    XXXX,XXXX,XXXX,XXXX,XXXX,
    	          XXXX,XXXX,XXXX,    XXXX,XXXX,XXXX)
 };
 
@@ -44,16 +62,6 @@ void f(uint16_t keycode, bool tap) {
     switch (keycode) {
         case SPC:
             spc = true;
-            break;
-        case THE:
-            tap_code(KC_T);
-            tap_code(KC_H);
-            tap_code(KC_E);
-            break;
-        case YOU:
-            tap_code(KC_Y);
-            tap_code(KC_U);
-            tap_code(KC_U);
             break;
         case TOP:
             f(pgm_read_word(&keymaps[0][row][0]),true);
@@ -84,6 +92,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 };
+
+/*
+void s(uint16_t key) {
+    if(fns) {
+        layer_state_set(1);
+        fns = false;
+    }
+    if(key) {
+        if(sft) {
+            register_code(KC_LSFT);
+            tap_code(key);
+            unregister_code(KC_LSFT);
+            sft = false;
+        } else {
+            tap_code(key);
+        }
+        key = 0;
+    }
+    if(spc) {
+        tap_code(KC_SPC);
+        spc = false;
+    }
+    layer_state_set(0);
+}
+*/
 
 
 /*
