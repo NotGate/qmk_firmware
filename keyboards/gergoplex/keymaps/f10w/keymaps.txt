@@ -1,0 +1,107 @@
+data/grimm.txt
+G  ,W  ,R  ,M  ,XXX,XXX,COM,D  ,L  ,U  ,
+A  ,S  ,I  ,N  ,XXX,XXX,E  ,H  ,O  ,T  ,
+DOT,FNS,C  ,V  ,XXX,XXX,K  ,B  ,Y  ,P  ,
+    TOP,MID,BOT,       ,SFT,SPC,F  ,
+
+data/english_quotes.txt
+L  ,M  ,Y  ,D  ,XXX,XXX,R  ,W  ,C  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+P  ,FNS,K  ,V  ,XXX,XXX,F  ,COM,DOT,B  ,
+    TOP,MID,BOT,       ,SFT,SPC,G  ,
+
+data/worlds.txt
+G  ,M  ,W  ,C  ,XXX,XXX,D  ,R  ,L  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+COM,FNS,V  ,P  ,XXX,XXX,DOT,K  ,Y  ,B  ,
+    TOP,MID,BOT,       ,SFT,SPC,F  ,
+
+data/blind-country.txt
+M  ,C  ,W  ,F  ,XXX,XXX,R  ,D  ,L  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+Y  ,FNS,V  ,K  ,XXX,XXX,B  ,COM,DOT,P  ,
+    TOP,MID,BOT,       ,SFT,SPC,G  ,
+
+data/sherlock.txt
+L  ,D  ,M  ,Y  ,XXX,XXX,R  ,W  ,C  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,S  ,E  ,H  ,T  ,
+B  ,FNS,K  ,V  ,XXX,XXX,G  ,COM,F  ,P  ,
+    TOP,MID,BOT,       ,SFT,SPC,DOT,
+
+data/time-traveller.txt
+M  ,W  ,C  ,F  ,XXX,XXX,R  ,D  ,L  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+Y  ,FNS,V  ,COM,XXX,XXX,K  ,DOT,P  ,B  ,
+    TOP,MID,BOT,       ,SFT,SPC,G  ,
+
+data/scarlet.txt
+U  ,C  ,F  ,R  ,XXX,XXX,COM,M  ,D  ,L  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+B  ,SFT,FNS,V  ,XXX,XXX,K  ,P  ,DOT,Y  ,
+    TOP,MID,BOT,       ,W  ,SPC,G  ,
+
+data/moby.txt
+G  ,M  ,W  ,F  ,XXX,XXX,R  ,D  ,L  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+COM,SFT,FNS,V  ,XXX,XXX,P  ,DOT,K  ,B  ,
+    TOP,MID,BOT,       ,C  ,SPC,Y  ,
+
+data/StarWars-Episode5.txt
+U  ,S  ,D  ,DOT,XXX,XXX,Y  ,L  ,H  ,W  ,
+I  ,A  ,O  ,N  ,XXX,XXX,R  ,E  ,T  ,P  ,
+FNS,V  ,F  ,COM,XXX,XXX,B  ,G  ,K  ,SFT,
+    TOP,MID,BOT,       ,SPC,M  ,C  ,
+
+data/StarWars-Episode4.txt
+U  ,L  ,D  ,DOT,XXX,XXX,Y  ,M  ,H  ,G  ,
+I  ,O  ,A  ,N  ,XXX,XXX,T  ,S  ,E  ,R  ,
+B  ,W  ,FNS,F  ,XXX,XXX,V  ,K  ,C  ,COM,
+    TOP,MID,BOT,       ,SFT,SPC,P  ,
+
+data/war.txt
+C  ,L  ,W  ,D  ,XXX,XXX,M  ,R  ,F  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,S  ,E  ,H  ,T  ,
+K  ,FNS,V  ,G  ,XXX,XXX,B  ,COM,DOT,P  ,
+    TOP,MID,BOT,       ,SFT,SPC,Y  ,
+
+data/alice.txt
+G  ,C  ,W  ,COM,XXX,XXX,R  ,D  ,L  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,S  ,T  ,
+DOT,K  ,V  ,FNS,XXX,XXX,B  ,M  ,Y  ,P  ,
+    TOP,MID,BOT,       ,SFT,SPC,F  ,
+
+data/BeeMovie.txt
+W  ,H  ,D  ,DOT,XXX,XXX,Y  ,R  ,L  ,U  ,
+E  ,S  ,T  ,N  ,XXX,XXX,O  ,A  ,I  ,COM,
+C  ,V  ,F  ,B  ,XXX,XXX,G  ,K  ,M  ,SFT,
+    TOP,MID,BOT,       ,SPC,FNS,P  ,
+
+data/tale.txt
+W  ,L  ,M  ,D  ,XXX,XXX,R  ,F  ,C  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,S  ,E  ,H  ,T  ,
+COM,FNS,V  ,K  ,XXX,XXX,P  ,B  ,Y  ,G  ,
+    TOP,MID,BOT,       ,SFT,SPC,DOT,
+
+data/RapGod.txt
+L  ,M  ,D  ,Y  ,XXX,XXX,S  ,R  ,C  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,F  ,
+FNS,DOT,W  ,V  ,XXX,XXX,P  ,COM,B  ,SFT,
+    TOP,MID,BOT,       ,SPC,G  ,K  ,
+
+ALL
+L  ,W  ,M  ,D  ,XXX,XXX,R  ,C  ,F  ,U  ,
+I  ,A  ,O  ,N  ,XXX,XXX,E  ,H  ,T  ,S  ,
+Y  ,FNS,P  ,V  ,XXX,XXX,B  ,K  ,DOT,G  ,
+    TOP,MID,BOT,       ,SFT,SPC,COM,
+
+
+L    W    M    D      R    C    F    U
+I    A    O    N      E    H    T    S
+Y    FNS  P    V      B    K    .    G
+     TOP  MID  BOT    ,    SPC  SFT
+
+
+L      W    M    D      R    C    F    U
+Y      A    O    N      E    H    T    G
+FNS    I    P    V      B    K    S    SFT
+       TOP  MID  BOT    ,    SPC  .

@@ -1,15 +1,27 @@
 // sudo util/docker_build.sh gergoplex:f10w:flash
 #include QMK_KEYBOARD_H
-#define XXX KC_NO
+#define XXXX KC_NO
+#define SFT OSM(MOD_LSFT)
+#define FNS OSL(1)
+#define DOT KC_DOT
+#define COM KC_COMM
 
 enum custom_keycodes {
     TOP = SAFE_RANGE,
     MID,
     BOT,
     SPC,
-    SFT,
-    TH,
-    OU,
+
+    AND,
+    THE,
+    ING,
+    YOU,
+    SCN,
+    CLN,
+    DQT,
+    SQT,
+    MNS,
+    PLS
 };
 
 bool spc = false;
@@ -17,15 +29,15 @@ size_t row = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [0] = LAYOUT_gergoplex(
-    W  ,TH ,L  ,D  ,XXX,XXX,I  ,R  ,H  ,M  ,
-    SFT,N  ,T  ,A  ,XXX,XXX,E  ,O  ,S  ,FNS,
-    Y  ,P  ,IN ,F  ,XXX,XXX,C  ,G  ,U  ,ER ,
-   	    TOP,MID,BOT,        OU ,SPC,B  ),
+    KC_U,KC_F,KC_C,KC_R,XXXX,    XXXX,KC_D,KC_M,KC_W,KC_L,
+    KC_I,KC_A,KC_O,KC_N,XXXX,    XXXX,KC_T,KC_H,KC_E,KC_S,
+    DOT ,KC_Y,KC_V,KC_G,XXXX,    XXXX,KC_B,KC_P,KC_K,COM ,
+              TOP ,MID ,BOT ,    SFT ,SPC ,FNS ),
 [1] = LAYOUT_gergoplex(
-    XXX,SCN,DQT,DOT,XXX,XXX,COM,SQT,CLN,XXX,
-    XXX,Z  ,J  ,K  ,XXX,XXX,V  ,X  ,Q  ,XXX,
-    XXX,XXX,XXX,PLS,XXX,XXX,MNS,XXX,XXX,XXX,
-   	    XXX,XXX,XXX,        XXX,XXX,XXX)
+    XXXX,SCN ,DQT ,AND ,XXXX,    XXXX,THE ,SQT ,CLN ,XXXX,
+    XXXX,KC_Z,KC_J,YOU ,XXXX,    XXXX,ING ,KC_X,KC_Q,XXXX,
+    XXXX,XXXX,XXXX,PLS ,XXXX,    XXXX,MNS ,XXXX,XXXX,XXXX,
+   	          XXXX,XXXX,XXXX,    XXXX,XXXX,XXXX)
 };
 
 void f(uint16_t keycode, bool tap) {
@@ -33,12 +45,14 @@ void f(uint16_t keycode, bool tap) {
         case SPC:
             spc = true;
             break;
-        case TH:
+        case THE:
             tap_code(KC_T);
             tap_code(KC_H);
+            tap_code(KC_E);
             break;
-        case OU:
-            tap_code(KC_O);
+        case YOU:
+            tap_code(KC_Y);
+            tap_code(KC_U);
             tap_code(KC_U);
             break;
         case TOP:
