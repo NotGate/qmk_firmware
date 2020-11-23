@@ -1,4 +1,108 @@
+// sudo util/docker_build.sh gergoplex:notgate:flash
+// make gergoplex:notgate:flash
 #include QMK_KEYBOARD_H
+
+#define XXXX KC_NO
+#define DOT KC_DOT
+#define COM KC_COMM
+#define DQT S(KC_QUOT)
+#define SQT KC_QUOT
+
+#define BS LCTL(KC_BSPC)
+#define DS LCTL(KC_DEL)
+#define TB KC_TAB
+#define NL KC_ENT
+
+#define SFT OSM(MOD_LSFT)
+
+// const uint16_t PROGMEM nl[] = {KC_W, KC_X, COMBO_END};
+// const uint16_t PROGMEM tb[] = {KC_Z, KC_Q, COMBO_END};
+
+// const uint16_t PROGMEM ds[] = {COM , KC_T, COMBO_END};
+// const uint16_t PROGMEM bs[] = {DOT , KC_E, COMBO_END};
+
+// const uint16_t PROGMEM es[] = {DQT , KC_C, COMBO_END};
+// const uint16_t PROGMEM bs[] = {SQT , KC_G, COMBO_END};
+
+// combo_t key_combos[COMBO_COUNT] = {
+//     COMBO(nl, NL),
+//     COMBO(tb, TB),
+
+//     COMBO(bs, BS),
+//     COMBO(ds, DS)
+// };
+
+enum custom_keycodes {
+    TOP = SAFE_RANGE,
+    MID,
+    BOT,
+    SPC,
+};
+
+uint16_t spc = 0;
+size_t row = 0;
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+// [0] = LAYOUT_gergoplex(
+//     KC_B,KC_L,KC_R,KC_W,KC_X,    KC_Z,KC_Q,KC_U,KC_D,KC_J,
+//     KC_S,KC_H,KC_N,KC_T,COM ,    DOT ,KC_E,KC_A,KC_O,KC_I,
+//     KC_F,KC_M,KC_V,KC_C,DQT ,    SQT ,KC_G,KC_P,KC_K,KC_Y,
+//               TOP ,MID ,BOT ,    SFT ,SPC ,TO(1)),
+[0] = LAYOUT_gergoplex(
+    XXXX, 6  ,4   ,2   ,XXXX,XXXX,12  ,14  ,16  ,XXXX,
+    7   , 5  ,3   ,1   ,XXXX,XXXX,11  ,13  ,15  ,17  ,
+    XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,
+              XXXX,8   ,9   ,19  ,18  ,XXXX),
+// [2] = LAYOUT_gergoplex(
+//     XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,
+//     KC_0,KC_1,KC_2,KC_3,XXXX,XXXX,KC_6,KC_7,KC_8,KC_9,
+//     XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,
+//             TO(1) ,KC_4,XXXX,XXXX,KC_5,TO(0))
+// [1] = LAYOUT_gergoplex(
+//     AMP ,SEM ,PLS, BNG ,HSH ,    AT  ,QST ,DSH ,COL ,PIP ,
+//     KC_0,KC_1,KC_2,KC_3,KC_4,    KC_5,KC_6,KC_7,KC_8,KC_9,
+//     LT  ,LBC ,LBT ,LP  ,LS  ,    RS  ,RP  ,RBT ,RBC ,RT  ,
+//    	          CRT ,EQ  ,AST ,    TLD ,BTK ,TO(0)))
+};
+
+/*
+l h t m v   o k d u
+r c s p f   n e i a
+  g y q b   j x z w
+
+
+b l r w x   z q u d j
+s h n t ,   . e a o i
+f m v c "   ' g p k y
+
+ugh this is gonna kill your right thumb for programming since you're also using it for space
+& ; + ! #   @ ? - : |
+0 1 2 3 4   5 6 7 8 9
+< { [ ( /   \ ) ] } >
+_ $ %
+
+1) BS, NL, TB
+2) mods
+*/
+
+void f(uint16_t keycode, bool tap) {
+    switch (keycode) {
+        case SPC:
+            spc = 1;
+            break;
+        case TOP:
+            f(pgm_read_word(&keymaps[0][row][0]),true);
+            break;
+        case MID:
+            f(pgm_read_word(&keymaps[0][row][1]),true);
+            break;
+        case BOT:
+            f(pgm_read_word(&keymaps[0][row][2]),true);
+            break;
+        default:
+            if(tap) tap_code(keycode);
+    }
+}
 
 static uint16_t state;
 uint16_t start = 0;
@@ -16,14 +120,6 @@ enum SIDE side = NONE;
 #define XX KC_NO
 #define TAP(KC) tap_code16(KC);break;
 #define OS(KC) set_oneshot_mods(KC);break;
-
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    LAYOUT_gergoplex(
-            XX, 6, 4, 2,XX,XX,12,14,16,XX,
-             7, 5, 3, 1,XX,XX,11,13,15,17,
-            XX,XX,XX,XX,XX,XX,XX,XX,XX,XX,
-                  XX, 8, 9,19,18,XX)
-};
 
 static void process(uint16_t val) {
     switch (val) {
@@ -141,13 +237,13 @@ static void process(uint16_t val) {
         case THUMB1|Z|K|Q:TAP(KC_F2)
         case THUMB1|Z|J|V:TAP(KC_F5)
         case THUMB1|Z|J|Q:TAP(KC_F9)
-         
+
         // Thumb2 Chords
         case THUMB2      :TAP(KC_BSPC)
         case THUMB2|X    :OS(MOD_LCTL)
-        case THUMB2|Z    :TAP(XX)
+        case THUMB2|Z    :layer_move(0); break;
         case THUMB2|K    :OS(MOD_LGUI)
-        case THUMB2|J    :TAP(XX)
+        case THUMB2|J    :layer_move(2); break;
         case THUMB2|V    :OS(MOD_LALT)
         case THUMB2|Q    :TAP(XX)
         case THUMB2|X|K  :OS(MOD_LCTL|MOD_LGUI)
@@ -180,25 +276,55 @@ static void process(uint16_t val) {
     // Home, End, PageUp, PageDown
 }
 
+
+
 void matrix_scan_user() {
-    if(side!=NONE && timer_elapsed(start)>500){
-        process(state);
+    if(IS_LAYER_ON(0)) {
+        if(side!=NONE && timer_elapsed(start)>500){
+            process(state);
+        }
     }
 }
 
+
+// TODO: find a good way to activate LSFT or FNS before other keys - opposite of space
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if(record->event.pressed && keycode != KC_NO) {
-        if(side != keycode/10+1 && side != NONE) {
+    if(IS_LAYER_ON(1)){
+        if (record->event.pressed) {
+            f(keycode,false);
+            if(record->event.key.col < 3) {
+                row = record->event.key.row;
+            }
+            if(spc) {
+                spc++;
+                if(spc>2) {
+                    tap_code(KC_SPC);
+                    spc = 0;
+                }
+            }
+        } else {
+            if(spc) {
+                tap_code(KC_SPC);
+                spc = 0;
+            }
+        }
+        return true;
+    } else if(IS_LAYER_ON(0)) {
+        if(record->event.pressed && keycode != KC_NO) {
+            if(side != keycode/10+1 && side != NONE) {
+                process(state);
+                state = 0;
+            }
+            side = keycode/10+1;
+            if(state==0) start = timer_read();
+            state |= 1 << (keycode%10);
+        }else if(state > 0){
             process(state);
             state = 0;
+            side = NONE;
         }
-        side = keycode/10+1;
-        if(state==0) start = timer_read();
-        state |= 1 << (keycode%10);
-    }else if(state > 0){
-        process(state);
-        state = 0;
-        side = NONE;
+        return false;
+    } else {
+        return true;
     }
-    return false;
-}
+};
